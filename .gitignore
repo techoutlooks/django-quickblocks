@@ -7,3 +7,5 @@
 /proj/
 .ropeproject/
 /django_quickblocks/fixtures/
+django_quickblocks.egg-info/
+django_quickblocks/migrations.7z

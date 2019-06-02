@@ -38,12 +38,12 @@ Example usage::
 """
 from django import template
 from django.conf import settings
-from django.db import models
+from django.apps import apps
 
 register = template.Library()
 
-QuickBlockType = models.get_model('django_quickblocks', 'quickblocktype')
-QuickBlock = models.get_model('django_quickblocks', 'quickblock')
+QuickBlockType = apps.get_model('django_quickblocks', 'quickblocktype')
+QuickBlock = apps.get_model('django_quickblocks', 'quickblock')
 
 @register.simple_tag(takes_context=True)
 def load_quickblocks(context, slug, tag=None):

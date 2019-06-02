@@ -108,8 +108,8 @@ class QuickBlockCRUDL(SmartCRUDL):
                 return "Create Content Block"
 
         def get_type(self):
-            if 'type' in self.request.REQUEST:
-                return QuickBlockType.objects.get(id=self.request.REQUEST.get('type'))
+            if 'type' in self.request.GET:
+                return QuickBlockType.objects.get(id=self.request.GET.get('type'))
             return None
 
         def get_context_data(self, *args, **kwargs):

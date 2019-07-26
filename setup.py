@@ -9,7 +9,8 @@ setup(
         'Django>=1.3',
         'Pillow>=6.0.0',
         'smartmin',
-        'django-reversion>=1.3.3'
+        'django-reversion>=1.3.3',
+        'django-gm2m>=0.6.1'
         ],
     dependency_links = [],
     description = "",
@@ -31,5 +32,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Framework :: Django',
-    ]
+        ]
     )

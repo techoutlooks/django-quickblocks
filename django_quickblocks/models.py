@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from gm2m import GM2MField
 from smartmin.models import SmartModel
+
 
 class QuickBlockType(SmartModel):
     """
@@ -36,6 +38,7 @@ class QuickBlockType(SmartModel):
     def __unicode__(self):
         return self.name
 
+
 class QuickBlock(SmartModel):
     """
     A QuickBlock is just a block of content, organized by type and priority.  All fields are optional
@@ -63,7 +66,7 @@ class QuickBlock(SmartModel):
                            help_text="Any tags for this content block, separated by spaces, can be used to do more advanced filtering, optional")
     priority = models.IntegerField(default=0,
                                    help_text="The priority for this block, higher priority blocks come first")
-
+    items = GM2MField(related_name='stories', help_text="The items this story is all about")
 
     def space_tags(self):
         """
@@ -77,6 +80,7 @@ class QuickBlock(SmartModel):
 
     def __unicode__(self):
         return self.title
+
 
 class QuickBlockImage(SmartModel):
     quickblock = models.ForeignKey(QuickBlock, related_name='images')
